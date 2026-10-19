@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flexible AI Coding Agent</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <div>
+      <h1>AI Coding Agent</h1>
+      <p>Local-first coding help for your project</p>
+    </div>
+    <span id="mode-badge">Connecting…</span>
+  </header>
+  <main>
+    <aside>
+      <h2>Workspace & model</h2>
+      <label for="workspace">Workspace folder path</label>
+      <input id="workspace" placeholder="C:\path\to\project" autocomplete="off">
+      <label for="provider">Provider</label>
+      <select id="provider">
+        <option value="ollama">Ollama (local)</option>
+        <option value="openai">OpenAI (cloud)</option>
+      </select>
+      <label for="model">Model</label>
+      <div class="model-row">
+        <select id="model"></select>
+        <button id="refresh-models" title="Refresh models">↻</button>
+      </div>
+      <p id="settings-note" class="hint"></p>
+      <button id="clear-chat" class="secondary">New conversation</button>
+      <p class="safety-note">Commands are never run without your approval. Keep this app on your own computer.</p>
+    </aside>
+    <section class="chat-panel">
+      <div id="messages" aria-live="polite">
+        <div class="welcome">Choose a workspace, select a model, and describe a coding task.</div>
+      </div>
+      <form id="chat-form">
+        <textarea id="prompt" rows="3" placeholder="Ask about your project…" required></textarea>
+        <button id="send" type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>
